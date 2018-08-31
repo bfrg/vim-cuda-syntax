@@ -879,7 +879,6 @@ if exists('g:cuda_runtime_api_highlight') && g:cuda_runtime_api_highlight
     " syntax keyword cudaMember func contained
     " syntax keyword cudaMember ptr contained
     " syntax keyword cudaMember x y z contained
-
     " Already added above as global variable
     " syntax keyword cudaMember warpSize blockDim gridDim
 endif " g:cuda_runtime_api_highlight
@@ -1524,7 +1523,6 @@ if exists('g:cuda_thrust_highlight') && g:cuda_thrust_highlight
     syntax keyword cudaThrustType       constant_iterator counting_iterator transform_iterator permutation_iterator zip_iterator
     syntax keyword cudaThrustType       execution_policy host_execution_policy device_execution_policy
     syntax keyword cudaThrustType       device_allocator device_reference device_ptr device_malloc_reference
-
     hi default link cudaThrustNamespace Constant
     hi default link cudaThrustType      Type
 endif
@@ -1650,7 +1648,7 @@ endif
 " Default highlighting {{{1
 
 " Link syntax groups to common highlight groups
-hi default link cudaStorageClass Statement
+hi default link cudaStorageClass StorageClass
 hi default link cudaType         Type
 hi default link cudaFunction     Function
 hi default link cudaConstant     Constant
