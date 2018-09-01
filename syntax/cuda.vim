@@ -3,7 +3,7 @@
 " Language:     CUDA (NVIDIA Compute Unified Device Architecture)
 " Maintainer:   bfrg <bfrg@users.noreply.github.com>
 " Website:      https://github.cim/bfrg/vim-cuda-syntax
-" Last Change:  Aug 31, 2018
+" Last Change:  Sep 1, 2018
 "
 " Enhanced CUDA syntax highlighting including highlighting of CUDA kernel calls.
 "
@@ -56,7 +56,7 @@ endif
 
 
 " C language extensions {{{1
-" Based on: http://docs.nvidia.com/cuda/cuda-c-programming-guide (v9.1.85, Jan 24, 2018)
+" Based on: http://docs.nvidia.com/cuda/cuda-c-programming-guide
 
 " B.1/B.2
 syntax keyword cudaStorageClass __device__ __global__ __host__
@@ -76,6 +76,8 @@ syntax keyword cudaType     ulong1 ulong2 ulong3 ulong4
 syntax keyword cudaType     float1 float2 float3 float4
 syntax keyword cudaType     ufloat1 ufloat2 ufloat3 ufloat4
 syntax keyword cudaType     longlong1 longlong2 ulonglong1 ulonglong2
+syntax keyword cudaType     longlong3 longlong4 ulonglong3 ulonglong4
+syntax keyword cudaType     double1 double2 double3 double4
 syntax keyword cudaType     dim3
 " syntax keyword cudaFunction make_char1 make_char2 make_char3 make_char4
 " syntax keyword cudaFunction make_uchar1 make_uchar2 make_uchar3 make_uchar4
@@ -87,8 +89,9 @@ syntax keyword cudaType     dim3
 " syntax keyword cudaFunction make_ulong1 make_ulong2 make_ulong3 make_ulong4
 " syntax keyword cudaFunction make_float1 make_float2 make_float3 make_float4
 " syntax keyword cudaFunction make_ufloat1 make_ufloat2 make_ufloat3 make_ufloat4
-" syntax keyword cudaFunction make_longlong1 make_longlong2
-" syntax keyword cudaFunction make_ulonglong1 make_ulonglong2
+" syntax keyword cudaFunction make_longlong1 make_longlong2 make_longlong3 make_longlong4
+" syntax keyword cudaFunction make_ulonglong1 make_ulonglong2 make_ulonglong3 make_ulonglong4
+" syntax keyword cudaFunction make_double1 make_double2 make_double3 make_double4
 
 " B.4 Built-in variables (global variables)
 syntax keyword cudaVariable gridDim blockIdx blockDim threadIdx warpSize
