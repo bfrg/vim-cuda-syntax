@@ -15,6 +15,14 @@ as well as highlighting of the triple-angle brackets in CUDA kernel calls.
 All keywords were accumulated from the
 [CUDA Toolkit Documentation](http://docs.nvidia.com/cuda/index.html).
 
+#### Screenshot
+
+<dl>
+<p align="center">
+<img src="./screenshot-cuda-monokai.png" width="480"/>
+</p>
+</dl>
+
 #### Limitations
 
 1. Not all CUDA library functions are highlighted by default. To get
