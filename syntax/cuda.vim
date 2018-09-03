@@ -96,13 +96,16 @@ syntax keyword cudaType     dim3
 " B.4 Built-in variables (global variables)
 syntax keyword cudaVariable gridDim blockIdx blockDim threadIdx warpSize
 
-" B.5/B.6 (B.7 mathematical functions, see CUDA Math API at the bottom)
-syntax keyword cudaType     texture
+" B.5/B.6
 syntax keyword cudaFunction __threadfence_block __threadfence __threadfence_system
 syntax keyword cudaFunction __syncthreads __syncthreads_count __syncthreads_and __syncthreads_or
 syntax keyword cudaFunction __syncwarp
 
-" B.8 Texture functions (function templates)
+" B.8 Texture functions and objects
+syntax keyword cudaType     texture
+syntax keyword cudaConstant cudaTextureType1D cudaTextureType2D cudaTextureType3D
+syntax keyword cudaConstant cudaTextureType1DLayered cudaTextureType2DLayered
+syntax keyword cudaConstant cudaTextureTypeCubemap cudaTextureTypeCubemapLayered
 syntax keyword cudaFunction tex1Dfetch
 syntax keyword cudaFunction tex1D tex1DLod tex1DGrad
 syntax keyword cudaFunction tex2D tex2DLod tex2DGrad
