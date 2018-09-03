@@ -1,35 +1,32 @@
-# vim-cuda-syntax: Enhanced CUDA syntax highlighting
+# vim-cuda-syntax
 
-This syntax file provides enhanced CUDA syntax highlighting for Vim, including
-highlighting of CUDA kernel calls.
+This file provides syntax highlighting for CUDA development in Vim. Compared to
+Vim's default CUDA syntax file, it adds highlighting of all CUDA defined:
+- types
+- enums
+- constants
+- global variables
+- functions (see details below)
+- namespaces
+- thrust keywords
 
-## Additions to Vim's default CUDA syntax file
-
-Highlighting of all CUDA defined
-- Types
-- Enums
-- Constants
-- Global variables
-- Library functions (see details below)
-- Namespaces
-- Thrust keywords
-- triple-angle brackets in CUDA Kernel calls
+as well as highlighting of the triple-angle brackets in CUDA kernel calls.
 
 All keywords were accumulated from the
 [CUDA Toolkit Documentation](http://docs.nvidia.com/cuda/index.html).
 
 #### Limitations
 
-1. CUDA library functions are not highlighted. To get highlighting of function
-   names either use one of the popular C/C++ syntax plugins
-   ([vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
+1. Not all CUDA library functions are highlighted by default. To get
+   highlighting of function names either use one of the popular C/C++ syntax
+   plugins ([vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
    or [vim-cpp-modern](https://github.com/bfrg/vim-cpp-modern)), or add the
-   following snippet to `~/.vim/after/c.vim`:
+   following lines to `~/.vim/after/c.vim`:
    ```vim
    syntax match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
    highlight default link cUserFunction Function
    ```
-   This will highlight all words that are followed by an opening parenthesis as
+   This will highlight all words followed by an opening parenthesis as
    `Function`.
 
    This simple regex, however, doesn't work for function templates that are
@@ -72,6 +69,27 @@ let g:cuda_no_kernel_highlight = 1
 
 Since this syntax file fully replaces Vim's default CUDA syntax file, copy the
 `cuda.vim` file into the `~/.vim/syntax` directory.
+
+
+## FAQ
+
+> I want everything in-between the triple angle-brackets highlighted to get a
+> more distinct highlighting of kernel calls.
+
+Add the following lines to `~/.vim/after/syntax/cuda.vim` (create the file if
+it doesn't exist):
+```vim
+syntax match cudaKernelAngles "<<<\_.\{-}>>>"
+highlight link cudaKernelAngles Operator
+```
+
+> I want the CUDA language extensions (`__device__`, `__host__`, etc.)
+> highlighted like the standard C/C++ keywords.
+
+Add the following to `~/.vim/after/syntax/cuda.vim`:
+```vim
+highlight link cudaStorageClass Statement
+```
 
 
 ## License
