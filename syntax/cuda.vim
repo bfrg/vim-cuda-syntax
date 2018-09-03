@@ -118,9 +118,9 @@ syntax keyword cudaFunction tex2Dgather
 
 " B.9 Surface functions and objects
 syntax keyword cudaType     surface
-syntax keyword cudaType     cudaSurfaceType1D cudaSurfaceType2D cudaSurfaceType3D
-syntax keyword cudaType     cudaSurfaceTypeCubemap cudaSurfaceTypeCubemapLayered
-syntax keyword cudaType     cudaSurfaceType1DLayered cudaSurfaceType2DLayered
+syntax keyword cudaConstant cudaSurfaceType1D cudaSurfaceType2D cudaSurfaceType3D
+syntax keyword cudaConstant cudaSurfaceTypeCubemap cudaSurfaceTypeCubemapLayered
+syntax keyword cudaConstant cudaSurfaceType1DLayered cudaSurfaceType2DLayered
 syntax keyword cudaFunction surf1Dread surf1Dwrite
 syntax keyword cudaFunction surf2Dread surf2Dwrite
 syntax keyword cudaFunction surf3Dread surf3Dwrite
