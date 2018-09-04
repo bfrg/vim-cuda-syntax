@@ -29,7 +29,7 @@ All keywords were accumulated from the
    highlighting of function names either use one of the popular C/C++ syntax
    plugins ([vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
    or [vim-cpp-modern](https://github.com/bfrg/vim-cpp-modern)), or add the
-   following lines to `~/.vim/after/c.vim`:
+   following lines to `~/.vim/after/syntax/c.vim`:
    ```vim
    syntax match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
    highlight default link cUserFunction Function
