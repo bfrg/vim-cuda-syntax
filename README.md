@@ -6,7 +6,7 @@ Vim's default CUDA syntax file, it adds highlighting of all CUDA defined:
 - enums
 - constants
 - global variables
-- functions (see details below)
+- functions
 - namespaces
 - thrust keywords
 
@@ -25,31 +25,12 @@ All keywords were accumulated from the
 
 #### Limitations
 
-1. Not all CUDA library functions are highlighted by default. To get
-   highlighting of function names either use one of the popular C/C++ syntax
-   plugins ([vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
-   or [vim-cpp-modern](https://github.com/bfrg/vim-cpp-modern)), or add the
-   following lines to `~/.vim/after/syntax/c.vim`:
-   ```vim
-   syntax match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
-   highlight default link cUserFunction Function
-   ```
-   This will highlight all words followed by an opening parenthesis as
-   `Function`.
-
-   This simple regex, however, doesn't work for function templates that are
-   called with template arguments, like `foo<32, bar<123>>(xyz)`. Matching the
-   function name `foo` in such calls isn't trivial. Therefore, we explicitly
-   added all CUDA function templates so that they always get highlighted, even
-   when called with template arguments.
-
-2. Highlighting of the triple angle-brackets in CUDA kernel calls works only
+1. Highlighting of the triple angle-brackets in CUDA kernel calls works only
    when the angle brackets are on the same line. The function name is only
    highlighted when called without template arguments, i.e. `mykernel` won't be
-   highlighted in `mykernel<foo, bar><<<grid, threads>>>(data)`, for the same
-   reason as above.
+   highlighted in `mykernel<foo, bar><<<grid, threads>>>(data)`.
 
-3. CUDA [data fields](https://docs.nvidia.com/cuda/cuda-runtime-api/functions.html#functions)
+2. CUDA [data fields](https://docs.nvidia.com/cuda/cuda-runtime-api/functions.html#functions)
    are not highlighted because many keywords have familiar names which could
    collide with either user-defined variables (like `ptr`, `x`, `y`), or with
    C++ standard library types (like `function` or `array`) and would mess up the

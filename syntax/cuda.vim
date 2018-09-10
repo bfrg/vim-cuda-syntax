@@ -3,7 +3,7 @@
 " Language:     CUDA (NVIDIA Compute Unified Device Architecture)
 " Maintainer:   bfrg <bfrg@users.noreply.github.com>
 " Website:      https://github.cim/bfrg/vim-cuda-syntax
-" Last Change:  Sep 1, 2018
+" Last Change:  Sep 10, 2018
 "
 " Enhanced CUDA syntax highlighting including highlighting of CUDA kernel calls.
 "
@@ -14,21 +14,9 @@
 " http://docs.nvidia.com/cuda/index.html
 "
 " Notes:
-" 1. CUDA data fields are not highlighted because many keywords have familiar
-"    names which could collide with either user-defined variables (like ptr, x,
-"    y, z), or with standard library types (like function or array).
-"
-" 2. Almost all CUDA functions are commented out (added below only for
-"    completeness).
-"    Functions can be highlighted using a simple regex pattern. Use one of the
-"    popular C/C++ syntax plugins:
-"      - octol/vim-cpp-enhanced-highlight
-"      - bfrg/vim-cpp-modern
-"    Exceptions when a simple regex doesn't work are function templates that are
-"    called with template arguments, like foo<32, bar<123>>(xyz). Matching the
-"    function name in such cases isn't trivial. Hence, we explicitly added all
-"    CUDA function templates so that they always get highlighted, even when
-"    called with template arguments.
+" CUDA data fields are not highlighted because many keywords have familiar names
+" which could collide with either user-defined variables (like ptr, x, y, z), or
+" with standard library types (like function or array).
 " ==============================================================================
 
 
@@ -189,278 +177,278 @@ syntax keyword cudaType      __nv_is_extended_host_device_lambda_closure_type
 
 if exists('g:cuda_runtime_api_highlight') && g:cuda_runtime_api_highlight
     " 4. Modules -- 4.1. Device Management
-    " syntax keyword cudaFunction cudaChooseDevice
-    " syntax keyword cudaFunction cudaDeviceGetAttribute
-    " syntax keyword cudaFunction cudaDeviceGetByPCIBusId
-    " syntax keyword cudaFunction cudaDeviceGetCacheConfig
-    " syntax keyword cudaFunction cudaDeviceGetLimit
-    " syntax keyword cudaFunction cudaDeviceGetP2PAttribute
-    " syntax keyword cudaFunction cudaDeviceGetPCIBusId
-    " syntax keyword cudaFunction cudaDeviceGetSharedMemConfig
-    " syntax keyword cudaFunction cudaDeviceGetStreamPriorityRange
-    " syntax keyword cudaFunction cudaDeviceReset
-    " syntax keyword cudaFunction cudaDeviceSetCacheConfig
-    " syntax keyword cudaFunction cudaDeviceSetLimit
-    " syntax keyword cudaFunction cudaDeviceSetSharedMemConfig
-    " syntax keyword cudaFunction cudaDeviceSynchronize
-    " syntax keyword cudaFunction cudaGetDevice
-    " syntax keyword cudaFunction cudaGetDeviceCount
-    " syntax keyword cudaFunction cudaGetDeviceFlags
-    " syntax keyword cudaFunction cudaGetDeviceProperties
-    " syntax keyword cudaFunction cudaIpcCloseMemHandle
-    " syntax keyword cudaFunction cudaIpcGetEventHandle
-    " syntax keyword cudaFunction cudaIpcGetMemHandle
-    " syntax keyword cudaFunction cudaIpcOpenEventHandle
-    " syntax keyword cudaFunction cudaIpcOpenMemHandle
-    " syntax keyword cudaFunction cudaSetDevice
-    " syntax keyword cudaFunction cudaSetDeviceFlags
-    " syntax keyword cudaFunction cudaSetValidDevices
+    syntax keyword cudaFunction cudaChooseDevice
+    syntax keyword cudaFunction cudaDeviceGetAttribute
+    syntax keyword cudaFunction cudaDeviceGetByPCIBusId
+    syntax keyword cudaFunction cudaDeviceGetCacheConfig
+    syntax keyword cudaFunction cudaDeviceGetLimit
+    syntax keyword cudaFunction cudaDeviceGetP2PAttribute
+    syntax keyword cudaFunction cudaDeviceGetPCIBusId
+    syntax keyword cudaFunction cudaDeviceGetSharedMemConfig
+    syntax keyword cudaFunction cudaDeviceGetStreamPriorityRange
+    syntax keyword cudaFunction cudaDeviceReset
+    syntax keyword cudaFunction cudaDeviceSetCacheConfig
+    syntax keyword cudaFunction cudaDeviceSetLimit
+    syntax keyword cudaFunction cudaDeviceSetSharedMemConfig
+    syntax keyword cudaFunction cudaDeviceSynchronize
+    syntax keyword cudaFunction cudaGetDevice
+    syntax keyword cudaFunction cudaGetDeviceCount
+    syntax keyword cudaFunction cudaGetDeviceFlags
+    syntax keyword cudaFunction cudaGetDeviceProperties
+    syntax keyword cudaFunction cudaIpcCloseMemHandle
+    syntax keyword cudaFunction cudaIpcGetEventHandle
+    syntax keyword cudaFunction cudaIpcGetMemHandle
+    syntax keyword cudaFunction cudaIpcOpenEventHandle
+    syntax keyword cudaFunction cudaIpcOpenMemHandle
+    syntax keyword cudaFunction cudaSetDevice
+    syntax keyword cudaFunction cudaSetDeviceFlags
+    syntax keyword cudaFunction cudaSetValidDevices
 
     " 4.3. Error Handling
-    " syntax keyword cudaFunction cudaGetErrorName
-    " syntax keyword cudaFunction cudaGetErrorString
-    " syntax keyword cudaFunction cudaGetLastError
-    " syntax keyword cudaFunction cudaPeekAtLastError
+    syntax keyword cudaFunction cudaGetErrorName
+    syntax keyword cudaFunction cudaGetErrorString
+    syntax keyword cudaFunction cudaGetLastError
+    syntax keyword cudaFunction cudaPeekAtLastError
 
     " 4.4. Stream Management
     syntax keyword cudaType     cudaStreamCallback_t
-    " syntax keyword cudaFunction cudaStreamAddCallback
-    " syntax keyword cudaFunction cudaStreamAttachMemAsync
-    " syntax keyword cudaFunction cudaStreamCreate
-    " syntax keyword cudaFunction cudaStreamCreateWithFlags
-    " syntax keyword cudaFunction cudaStreamCreateWithPriority
-    " syntax keyword cudaFunction cudaStreamDestroy
-    " syntax keyword cudaFunction cudaStreamGetFlags
-    " syntax keyword cudaFunction cudaStreamGetPriority
-    " syntax keyword cudaFunction cudaStreamQuery
-    " syntax keyword cudaFunction cudaStreamSynchronize
-    " syntax keyword cudaFunction cudaStreamWaitEvent
+    syntax keyword cudaFunction cudaStreamAddCallback
+    syntax keyword cudaFunction cudaStreamAttachMemAsync
+    syntax keyword cudaFunction cudaStreamCreate
+    syntax keyword cudaFunction cudaStreamCreateWithFlags
+    syntax keyword cudaFunction cudaStreamCreateWithPriority
+    syntax keyword cudaFunction cudaStreamDestroy
+    syntax keyword cudaFunction cudaStreamGetFlags
+    syntax keyword cudaFunction cudaStreamGetPriority
+    syntax keyword cudaFunction cudaStreamQuery
+    syntax keyword cudaFunction cudaStreamSynchronize
+    syntax keyword cudaFunction cudaStreamWaitEvent
 
     " 4.5. Event Management
-    " syntax keyword cudaFunction cudaEventCreate
-    " syntax keyword cudaFunction cudaEventCreateWithFlags
-    " syntax keyword cudaFunction cudaEventDestroy
-    " syntax keyword cudaFunction cudaEventElapsedTime
-    " syntax keyword cudaFunction cudaEventQuery
-    " syntax keyword cudaFunction cudaEventRecord
-    " syntax keyword cudaFunction cudaEventSynchronize
+    syntax keyword cudaFunction cudaEventCreate
+    syntax keyword cudaFunction cudaEventCreateWithFlags
+    syntax keyword cudaFunction cudaEventDestroy
+    syntax keyword cudaFunction cudaEventElapsedTime
+    syntax keyword cudaFunction cudaEventQuery
+    syntax keyword cudaFunction cudaEventRecord
+    syntax keyword cudaFunction cudaEventSynchronize
 
     " 4.6. Execution Control
-    " syntax keyword cudaFunction cudaFuncGetAttributes
-    " syntax keyword cudaFunction cudaFuncSetAttribute
-    " syntax keyword cudaFunction cudaFuncSetCacheConfig
-    " syntax keyword cudaFunction cudaFuncSetSharedMemConfig
-    " syntax keyword cudaFunction cudaGetParameterBuffer
-    " syntax keyword cudaFunction cudaGetParameterBufferV2
-    " syntax keyword cudaFunction cudaLaunchCooperativeKernel
-    " syntax keyword cudaFunction cudaLaunchCooperativeKernelMultiDevice
-    " syntax keyword cudaFunction cudaLaunchKernel
+    syntax keyword cudaFunction cudaFuncGetAttributes
+    syntax keyword cudaFunction cudaFuncSetAttribute
+    syntax keyword cudaFunction cudaFuncSetCacheConfig
+    syntax keyword cudaFunction cudaFuncSetSharedMemConfig
+    syntax keyword cudaFunction cudaGetParameterBuffer
+    syntax keyword cudaFunction cudaGetParameterBufferV2
+    syntax keyword cudaFunction cudaLaunchCooperativeKernel
+    syntax keyword cudaFunction cudaLaunchCooperativeKernelMultiDevice
+    syntax keyword cudaFunction cudaLaunchKernel
 
     " 4.7. Occupancy
-    " syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessor
-    " syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags
+    syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessor
+    syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags
 
     " 4.9. Memory Management
-    " syntax keyword cudaFunction cudaArrayGetInfo
-    " syntax keyword cudaFunction cudaFree
-    " syntax keyword cudaFunction cudaFreeArray
-    " syntax keyword cudaFunction cudaFreeHost
-    " syntax keyword cudaFunction cudaFreeMipmappedArray
-    " syntax keyword cudaFunction cudaGetMipmappedArrayLevel
-    " syntax keyword cudaFunction cudaGetSymbolAddress
-    " syntax keyword cudaFunction cudaGetSymbolSize
-    " syntax keyword cudaFunction cudaHostAlloc
-    " syntax keyword cudaFunction cudaHostGetDevicePointer
-    " syntax keyword cudaFunction cudaHostGetFlags
-    " syntax keyword cudaFunction cudaHostRegister
-    " syntax keyword cudaFunction cudaHostUnregister
-    " syntax keyword cudaFunction cudaMalloc
-    " syntax keyword cudaFunction cudaMalloc3D
-    " syntax keyword cudaFunction cudaMalloc3DArray
-    " syntax keyword cudaFunction cudaMallocArray
-    " syntax keyword cudaFunction cudaMallocHost
-    " syntax keyword cudaFunction cudaMallocManaged
-    " syntax keyword cudaFunction cudaMallocMipmappedArray
-    " syntax keyword cudaFunction cudaMallocPitch
-    " syntax keyword cudaFunction cudaMemAdvise
-    " syntax keyword cudaFunction cudaMemGetInfo
-    " syntax keyword cudaFunction cudaMemPrefetchAsync
-    " syntax keyword cudaFunction cudaMemRangeGetAttribute
-    " syntax keyword cudaFunction cudaMemRangeGetAttributes
-    " syntax keyword cudaFunction cudaMemcpy
-    " syntax keyword cudaFunction cudaMemcpy2D
-    " syntax keyword cudaFunction cudaMemcpy2DArrayToArray
-    " syntax keyword cudaFunction cudaMemcpy2DAsync
-    " syntax keyword cudaFunction cudaMemcpy2DFromArray
-    " syntax keyword cudaFunction cudaMemcpy2DFromArrayAsync
-    " syntax keyword cudaFunction cudaMemcpy2DToArray
-    " syntax keyword cudaFunction cudaMemcpy2DToArrayAsync
-    " syntax keyword cudaFunction cudaMemcpy3D
-    " syntax keyword cudaFunction cudaMemcpy3DAsync
-    " syntax keyword cudaFunction cudaMemcpy3DPeer
-    " syntax keyword cudaFunction cudaMemcpy3DPeerAsync
-    " syntax keyword cudaFunction cudaMemcpyArrayToArray
-    " syntax keyword cudaFunction cudaMemcpyAsync
-    " syntax keyword cudaFunction cudaMemcpyFromArray
-    " syntax keyword cudaFunction cudaMemcpyFromArrayAsync
-    " syntax keyword cudaFunction cudaMemcpyFromSymbol
-    " syntax keyword cudaFunction cudaMemcpyFromSymbolAsync
-    " syntax keyword cudaFunction cudaMemcpyPeer
-    " syntax keyword cudaFunction cudaMemcpyPeerAsync
-    " syntax keyword cudaFunction cudaMemcpyToArray
-    " syntax keyword cudaFunction cudaMemcpyToArrayAsync
-    " syntax keyword cudaFunction cudaMemcpyToSymbol
-    " syntax keyword cudaFunction cudaMemcpyToSymbolAsync
-    " syntax keyword cudaFunction cudaMemset
-    " syntax keyword cudaFunction cudaMemset2D
-    " syntax keyword cudaFunction cudaMemset2DAsync
-    " syntax keyword cudaFunction cudaMemset3D
-    " syntax keyword cudaFunction cudaMemset3DAsync
-    " syntax keyword cudaFunction cudaMemsetAsync
-    " syntax keyword cudaFunction make_cudaExtent
-    " syntax keyword cudaFunction make_cudaPitchedPtr
-    " syntax keyword cudaFunction make_cudaPos
+    syntax keyword cudaFunction cudaArrayGetInfo
+    syntax keyword cudaFunction cudaFree
+    syntax keyword cudaFunction cudaFreeArray
+    syntax keyword cudaFunction cudaFreeHost
+    syntax keyword cudaFunction cudaFreeMipmappedArray
+    syntax keyword cudaFunction cudaGetMipmappedArrayLevel
+    syntax keyword cudaFunction cudaGetSymbolAddress
+    syntax keyword cudaFunction cudaGetSymbolSize
+    syntax keyword cudaFunction cudaHostAlloc
+    syntax keyword cudaFunction cudaHostGetDevicePointer
+    syntax keyword cudaFunction cudaHostGetFlags
+    syntax keyword cudaFunction cudaHostRegister
+    syntax keyword cudaFunction cudaHostUnregister
+    syntax keyword cudaFunction cudaMalloc
+    syntax keyword cudaFunction cudaMalloc3D
+    syntax keyword cudaFunction cudaMalloc3DArray
+    syntax keyword cudaFunction cudaMallocArray
+    syntax keyword cudaFunction cudaMallocHost
+    syntax keyword cudaFunction cudaMallocManaged
+    syntax keyword cudaFunction cudaMallocMipmappedArray
+    syntax keyword cudaFunction cudaMallocPitch
+    syntax keyword cudaFunction cudaMemAdvise
+    syntax keyword cudaFunction cudaMemGetInfo
+    syntax keyword cudaFunction cudaMemPrefetchAsync
+    syntax keyword cudaFunction cudaMemRangeGetAttribute
+    syntax keyword cudaFunction cudaMemRangeGetAttributes
+    syntax keyword cudaFunction cudaMemcpy
+    syntax keyword cudaFunction cudaMemcpy2D
+    syntax keyword cudaFunction cudaMemcpy2DArrayToArray
+    syntax keyword cudaFunction cudaMemcpy2DAsync
+    syntax keyword cudaFunction cudaMemcpy2DFromArray
+    syntax keyword cudaFunction cudaMemcpy2DFromArrayAsync
+    syntax keyword cudaFunction cudaMemcpy2DToArray
+    syntax keyword cudaFunction cudaMemcpy2DToArrayAsync
+    syntax keyword cudaFunction cudaMemcpy3D
+    syntax keyword cudaFunction cudaMemcpy3DAsync
+    syntax keyword cudaFunction cudaMemcpy3DPeer
+    syntax keyword cudaFunction cudaMemcpy3DPeerAsync
+    syntax keyword cudaFunction cudaMemcpyArrayToArray
+    syntax keyword cudaFunction cudaMemcpyAsync
+    syntax keyword cudaFunction cudaMemcpyFromArray
+    syntax keyword cudaFunction cudaMemcpyFromArrayAsync
+    syntax keyword cudaFunction cudaMemcpyFromSymbol
+    syntax keyword cudaFunction cudaMemcpyFromSymbolAsync
+    syntax keyword cudaFunction cudaMemcpyPeer
+    syntax keyword cudaFunction cudaMemcpyPeerAsync
+    syntax keyword cudaFunction cudaMemcpyToArray
+    syntax keyword cudaFunction cudaMemcpyToArrayAsync
+    syntax keyword cudaFunction cudaMemcpyToSymbol
+    syntax keyword cudaFunction cudaMemcpyToSymbolAsync
+    syntax keyword cudaFunction cudaMemset
+    syntax keyword cudaFunction cudaMemset2D
+    syntax keyword cudaFunction cudaMemset2DAsync
+    syntax keyword cudaFunction cudaMemset3D
+    syntax keyword cudaFunction cudaMemset3DAsync
+    syntax keyword cudaFunction cudaMemsetAsync
+    syntax keyword cudaFunction make_cudaExtent
+    syntax keyword cudaFunction make_cudaPitchedPtr
+    syntax keyword cudaFunction make_cudaPos
 
     " 4.10. Unified Addressing
-    " syntax keyword cudaFunction cudaPointerGetAttributes
+    syntax keyword cudaFunction cudaPointerGetAttributes
 
     " 4.11. Peer Device Memory Access
-    " syntax keyword cudaFunction cudaDeviceCanAccessPeer
-    " syntax keyword cudaFunction cudaDeviceDisablePeerAccess
-    " syntax keyword cudaFunction cudaDeviceEnablePeerAccess
+    syntax keyword cudaFunction cudaDeviceCanAccessPeer
+    syntax keyword cudaFunction cudaDeviceDisablePeerAccess
+    syntax keyword cudaFunction cudaDeviceEnablePeerAccess
 
     " 4.12. OpenGL Interoperability
     syntax keyword cudaType     cudaGLDeviceList
     syntax keyword cudaConstant cudaGLDeviceListAll cudaGLDeviceListCurrentFrame cudaGLDeviceListNextFrame
-    " syntax keyword cudaFunction cudaGLGetDevices
-    " syntax keyword cudaFunction cudaGraphicsGLRegisterBuffer
-    " syntax keyword cudaFunction cudaGraphicsGLRegisterImage
-    " syntax keyword cudaFunction cudaWGLGetDevice
+    syntax keyword cudaFunction cudaGLGetDevices
+    syntax keyword cudaFunction cudaGraphicsGLRegisterBuffer
+    syntax keyword cudaFunction cudaGraphicsGLRegisterImage
+    syntax keyword cudaFunction cudaWGLGetDevice
 
     " 4.14. Direct3D 9 Interoperability
     syntax keyword cudaType     cudaD3D9DeviceList
     syntax keyword cudaConstant cudaD3D9DeviceListAll cudaD3D9DeviceListCurrentFrame cudaD3D9DeviceListNextFrame
-    " syntax keyword cudaFunction cudaD3D9GetDevice
-    " syntax keyword cudaFunction cudaD3D9GetDevices
-    " syntax keyword cudaFunction cudaD3D9GetDirect3DDevice
-    " syntax keyword cudaFunction cudaD3D9SetDirect3DDevice
-    " syntax keyword cudaFunction cudaGraphicsD3D9RegisterResource
+    syntax keyword cudaFunction cudaD3D9GetDevice
+    syntax keyword cudaFunction cudaD3D9GetDevices
+    syntax keyword cudaFunction cudaD3D9GetDirect3DDevice
+    syntax keyword cudaFunction cudaD3D9SetDirect3DDevice
+    syntax keyword cudaFunction cudaGraphicsD3D9RegisterResource
 
     " 4.16. Direct3D 10 Interoperability
     syntax keyword cudaType     cudaD3D10DeviceList
     syntax keyword cudaConstant cudaD3D10DeviceListAll cudaD3D10DeviceListCurrentFrame cudaD3D10DeviceListNextFrame
-    " syntax keyword cudaFunction cudaD3D10GetDevice
-    " syntax keyword cudaFunction cudaD3D10GetDevices
-    " syntax keyword cudaFunction cudaGraphicsD3D10RegisterResource
+    syntax keyword cudaFunction cudaD3D10GetDevice
+    syntax keyword cudaFunction cudaD3D10GetDevices
+    syntax keyword cudaFunction cudaGraphicsD3D10RegisterResource
 
     " 4.18. Direct3D 11 Interoperability
     syntax keyword cudaType     cudaD3D11DeviceList
     syntax keyword cudaConstant cudaD3D11DeviceListAll cudaD3D11DeviceListCurrentFrame cudaD3D11DeviceListNextFrame
-    " syntax keyword cudaFunction cudaD3D11GetDevice
-    " syntax keyword cudaFunction cudaD3D11GetDevices
-    " syntax keyword cudaFunction cudaGraphicsD3D11RegisterResource
+    syntax keyword cudaFunction cudaD3D11GetDevice
+    syntax keyword cudaFunction cudaD3D11GetDevices
+    syntax keyword cudaFunction cudaGraphicsD3D11RegisterResource
 
     " 4.20. VDPAU Interoperability
-    " syntax keyword cudaFunction cudaGraphicsVDPAURegisterOutputSurface
-    " syntax keyword cudaFunction cudaGraphicsVDPAURegisterVideoSurface
-    " syntax keyword cudaFunction cudaVDPAUGetDevice
-    " syntax keyword cudaFunction cudaVDPAUSetVDPAUDevice
+    syntax keyword cudaFunction cudaGraphicsVDPAURegisterOutputSurface
+    syntax keyword cudaFunction cudaGraphicsVDPAURegisterVideoSurface
+    syntax keyword cudaFunction cudaVDPAUGetDevice
+    syntax keyword cudaFunction cudaVDPAUSetVDPAUDevice
 
     " 4.21. EGL Interoperability
-    " syntax keyword cudaFunction cudaEGLStreamConsumerAcquireFrame
-    " syntax keyword cudaFunction cudaEGLStreamConsumerConnect
-    " syntax keyword cudaFunction cudaEGLStreamConsumerConnectWithFlags
-    " syntax keyword cudaFunction cudaEGLStreamConsumerDisconnect
-    " syntax keyword cudaFunction cudaEGLStreamConsumerReleaseFrame
-    " syntax keyword cudaFunction cudaEGLStreamProducerConnect
-    " syntax keyword cudaFunction cudaEGLStreamProducerDisconnect
-    " syntax keyword cudaFunction cudaEGLStreamProducerPresentFrame
-    " syntax keyword cudaFunction cudaEGLStreamProducerReturnFrame
-    " syntax keyword cudaFunction cudaEventCreateFromEGLSync
-    " syntax keyword cudaFunction cudaGraphicsEGLRegisterImage
-    " syntax keyword cudaFunction cudaGraphicsResourceGetMappedEglFrame
+    syntax keyword cudaFunction cudaEGLStreamConsumerAcquireFrame
+    syntax keyword cudaFunction cudaEGLStreamConsumerConnect
+    syntax keyword cudaFunction cudaEGLStreamConsumerConnectWithFlags
+    syntax keyword cudaFunction cudaEGLStreamConsumerDisconnect
+    syntax keyword cudaFunction cudaEGLStreamConsumerReleaseFrame
+    syntax keyword cudaFunction cudaEGLStreamProducerConnect
+    syntax keyword cudaFunction cudaEGLStreamProducerDisconnect
+    syntax keyword cudaFunction cudaEGLStreamProducerPresentFrame
+    syntax keyword cudaFunction cudaEGLStreamProducerReturnFrame
+    syntax keyword cudaFunction cudaEventCreateFromEGLSync
+    syntax keyword cudaFunction cudaGraphicsEGLRegisterImage
+    syntax keyword cudaFunction cudaGraphicsResourceGetMappedEglFrame
 
     " 4.22. Graphics Interoperability
-    " syntax keyword cudaFunction cudaGraphicsMapResources
-    " syntax keyword cudaFunction cudaGraphicsResourceGetMappedMipmappedArray
-    " syntax keyword cudaFunction cudaGraphicsResourceGetMappedPointer
-    " syntax keyword cudaFunction cudaGraphicsResourceSetMapFlags
-    " syntax keyword cudaFunction cudaGraphicsSubResourceGetMappedArray
-    " syntax keyword cudaFunction cudaGraphicsUnmapResources
-    " syntax keyword cudaFunction cudaGraphicsUnregisterResource
+    syntax keyword cudaFunction cudaGraphicsMapResources
+    syntax keyword cudaFunction cudaGraphicsResourceGetMappedMipmappedArray
+    syntax keyword cudaFunction cudaGraphicsResourceGetMappedPointer
+    syntax keyword cudaFunction cudaGraphicsResourceSetMapFlags
+    syntax keyword cudaFunction cudaGraphicsSubResourceGetMappedArray
+    syntax keyword cudaFunction cudaGraphicsUnmapResources
+    syntax keyword cudaFunction cudaGraphicsUnregisterResource
 
     " 4.23. Texture Reference Management
-    " syntax keyword cudaFunction cudaBindTexture
-    " syntax keyword cudaFunction cudaBindTexture2D
-    " syntax keyword cudaFunction cudaBindTextureToArray
-    " syntax keyword cudaFunction cudaBindTextureToMipmappedArray
-    " syntax keyword cudaFunction cudaCreateChannelDesc
-    " syntax keyword cudaFunction cudaGetChannelDesc
-    " syntax keyword cudaFunction cudaGetTextureAlignmentOffset
-    " syntax keyword cudaFunction cudaGetTextureReference
-    " syntax keyword cudaFunction cudaUnbindTexture
-
-    " 4.24. Surface Reference Management
-    " syntax keyword cudaFunction cudaBindSurfaceToArray
-    " syntax keyword cudaFunction cudaGetSurfaceReference
-
-    " 4.25. Texture Object Management
-    " syntax keyword cudaFunction cudaCreateTextureObject
-    " syntax keyword cudaFunction cudaDestroyTextureObject
-    " syntax keyword cudaFunction cudaGetTextureObjectResourceDesc
-    " syntax keyword cudaFunction cudaGetTextureObjectResourceViewDesc
-    " syntax keyword cudaFunction cudaGetTextureObjectTextureDesc
-
-    " 4.26. Surface Object Management
-    " syntax keyword cudaFunction cudaCreateSurfaceObject
-    " syntax keyword cudaFunction cudaDestroySurfaceObject
-    " syntax keyword cudaFunction cudaGetSurfaceObjectResourceDesc
-
-    " 4.27. Version Management
-    " syntax keyword cudaFunction cudaDriverGetVersion
-    " syntax keyword cudaFunction cudaRuntimeGetVersion
-
-    " 4.28. C++ API Routines
-    syntax keyword cudaType __cudaOccupancyB2DHelper
-    " syntax keyword cudaFunction cudaEventCreate
-    " syntax keyword cudaFunction cudaMallocHost
-
-    " Note: following functions are already listed above
-    " The one listed here are the overloaded template versions
-    syntax keyword cudaFunction cudaBindSurfaceToArray
     syntax keyword cudaFunction cudaBindTexture
     syntax keyword cudaFunction cudaBindTexture2D
     syntax keyword cudaFunction cudaBindTextureToArray
     syntax keyword cudaFunction cudaBindTextureToMipmappedArray
     syntax keyword cudaFunction cudaCreateChannelDesc
-    syntax keyword cudaFunction cudaFuncGetAttributes
-    syntax keyword cudaFunction cudaFuncSetAttribute
-    syntax keyword cudaFunction cudaFuncSetCacheConfig
-    syntax keyword cudaFunction cudaGetSymbolAddress
-    syntax keyword cudaFunction cudaGetSymbolSize
+    syntax keyword cudaFunction cudaGetChannelDesc
     syntax keyword cudaFunction cudaGetTextureAlignmentOffset
+    syntax keyword cudaFunction cudaGetTextureReference
+    syntax keyword cudaFunction cudaUnbindTexture
+
+    " 4.24. Surface Reference Management
+    syntax keyword cudaFunction cudaBindSurfaceToArray
+    syntax keyword cudaFunction cudaGetSurfaceReference
+
+    " 4.25. Texture Object Management
+    syntax keyword cudaFunction cudaCreateTextureObject
+    syntax keyword cudaFunction cudaDestroyTextureObject
+    syntax keyword cudaFunction cudaGetTextureObjectResourceDesc
+    syntax keyword cudaFunction cudaGetTextureObjectResourceViewDesc
+    syntax keyword cudaFunction cudaGetTextureObjectTextureDesc
+
+    " 4.26. Surface Object Management
+    syntax keyword cudaFunction cudaCreateSurfaceObject
+    syntax keyword cudaFunction cudaDestroySurfaceObject
+    syntax keyword cudaFunction cudaGetSurfaceObjectResourceDesc
+
+    " 4.27. Version Management
+    syntax keyword cudaFunction cudaDriverGetVersion
+    syntax keyword cudaFunction cudaRuntimeGetVersion
+
+    " 4.28. C++ API Routines
+    syntax keyword cudaType __cudaOccupancyB2DHelper
+    syntax keyword cudaFunction cudaEventCreate
+    syntax keyword cudaFunction cudaMallocHost
+
+    " Note: following functions are already listed above
+    " The one listed here are the overloaded template versions
+    " syntax keyword cudaFunction cudaBindSurfaceToArray
+    " syntax keyword cudaFunction cudaBindTexture
+    " syntax keyword cudaFunction cudaBindTexture2D
+    " syntax keyword cudaFunction cudaBindTextureToArray
+    " syntax keyword cudaFunction cudaBindTextureToMipmappedArray
+    " syntax keyword cudaFunction cudaCreateChannelDesc
+    " syntax keyword cudaFunction cudaFuncGetAttributes
+    " syntax keyword cudaFunction cudaFuncSetAttribute
+    " syntax keyword cudaFunction cudaFuncSetCacheConfig
+    " syntax keyword cudaFunction cudaGetSymbolAddress
+    " syntax keyword cudaFunction cudaGetSymbolSize
+    " syntax keyword cudaFunction cudaGetTextureAlignmentOffset
+    " syntax keyword cudaFunction cudaLaunchCooperativeKernel
+    " syntax keyword cudaFunction cudaLaunchKernel
+    " syntax keyword cudaFunction cudaMallocManaged
+    " syntax keyword cudaFunction cudaMemcpyFromSymbol
+    " syntax keyword cudaFunction cudaMemcpyFromSymbolAsync
+    " syntax keyword cudaFunction cudaMemcpyToSymbol
+    " syntax keyword cudaFunction cudaMemcpyToSymbolAsync
+    " syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessor
+    " syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags
+    " syntax keyword cudaFunction cudaStreamAttachMemAsync
+    " syntax keyword cudaFunction cudaUnbindTexture
     syntax keyword cudaFunction cudaLaunch
-    syntax keyword cudaFunction cudaLaunchCooperativeKernel
-    syntax keyword cudaFunction cudaLaunchKernel
-    syntax keyword cudaFunction cudaMallocManaged
-    syntax keyword cudaFunction cudaMemcpyFromSymbol
-    syntax keyword cudaFunction cudaMemcpyFromSymbolAsync
-    syntax keyword cudaFunction cudaMemcpyToSymbol
-    syntax keyword cudaFunction cudaMemcpyToSymbolAsync
-    syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessor
-    syntax keyword cudaFunction cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFlags
+    syntax keyword cudaFunction cudaSetupArgument
     syntax keyword cudaFunction cudaOccupancyMaxPotentialBlockSize
     syntax keyword cudaFunction cudaOccupancyMaxPotentialBlockSizeVariableSMem
     syntax keyword cudaFunction cudaOccupancyMaxPotentialBlockSizeVariableSMemWithFlags
     syntax keyword cudaFunction cudaOccupancyMaxPotentialBlockSizeWithFlags
-    syntax keyword cudaFunction cudaSetupArgument
-    syntax keyword cudaFunction cudaStreamAttachMemAsync
-    syntax keyword cudaFunction cudaUnbindTexture
 
     " 4.30. Profiler Control
-    " syntax keyword cudaFunction cudaProfilerInitialize
-    " syntax keyword cudaFunction cudaProfilerStart
-    " syntax keyword cudaFunction cudaProfilerStop
+    syntax keyword cudaFunction cudaProfilerInitialize
+    syntax keyword cudaFunction cudaProfilerStart
+    syntax keyword cudaFunction cudaProfilerStop
 
     " 4.31. Data types used by CUDA Runtime
     syntax keyword cudaType     cudaChannelFormatDesc
@@ -1305,130 +1293,130 @@ if exists('g:cuda_driver_api_highlight') && g:cuda_driver_api_highlight
     syntax keyword cudaConstant CU_STREAM_DEFAULT CU_STREAM_NON_BLOCKING
 
     " 4.2, 4.3, 4.4, 4.5, 4.7, 4.8, 4.10
-    " syntax keyword cudaFunction cuGetErrorName cuGetErrorString
-    " syntax keyword cudaFunction cuInit
-    " syntax keyword cudaFunction cuDriverGetVersion
-    " syntax keyword cudaFunction cuDeviceGet cuDeviceGetAttribute cuDeviceGetCount cuDeviceGetName cuDeviceTotalMem
-    " syntax keyword cudaFunction cuDevicePrimaryCtxGetState cuDevicePrimaryCtxRelease cuDevicePrimaryCtxReset cuDevicePrimaryCtxRetain cuDevicePrimaryCtxSetFlags
-    " syntax keyword cudaFunction cuCtxCreate cuCtxDestroy cuCtxGetApiVersion cuCtxGetCacheConfig cuCtxGetCurrent cuCtxGetDevice cuCtxGetFlags cuCtxGetLimit cuCtxGetSharedMemConfig cuCtxGetStreamPriorityRange cuCtxPopCurrent cuCtxPushCurrent cuCtxSetCacheConfig cuCtxSetCurrent cuCtxSetLimit cuCtxSetSharedMemConfig cuCtxSynchronize
-    " syntax keyword cudaFunction cuLinkAddData cuLinkAddFile cuLinkComplete cuLinkCreate cuLinkDestroy cuModuleGetFunction cuModuleGetGlobal cuModuleGetSurfRef cuModuleGetTexRef cuModuleLoad cuModuleLoadData cuModuleLoadDataEx cuModuleLoadFatBinary cuModuleUnload
+    syntax keyword cudaFunction cuGetErrorName cuGetErrorString
+    syntax keyword cudaFunction cuInit
+    syntax keyword cudaFunction cuDriverGetVersion
+    syntax keyword cudaFunction cuDeviceGet cuDeviceGetAttribute cuDeviceGetCount cuDeviceGetName cuDeviceTotalMem
+    syntax keyword cudaFunction cuDevicePrimaryCtxGetState cuDevicePrimaryCtxRelease cuDevicePrimaryCtxReset cuDevicePrimaryCtxRetain cuDevicePrimaryCtxSetFlags
+    syntax keyword cudaFunction cuCtxCreate cuCtxDestroy cuCtxGetApiVersion cuCtxGetCacheConfig cuCtxGetCurrent cuCtxGetDevice cuCtxGetFlags cuCtxGetLimit cuCtxGetSharedMemConfig cuCtxGetStreamPriorityRange cuCtxPopCurrent cuCtxPushCurrent cuCtxSetCacheConfig cuCtxSetCurrent cuCtxSetLimit cuCtxSetSharedMemConfig cuCtxSynchronize
+    syntax keyword cudaFunction cuLinkAddData cuLinkAddFile cuLinkComplete cuLinkCreate cuLinkDestroy cuModuleGetFunction cuModuleGetGlobal cuModuleGetSurfRef cuModuleGetTexRef cuModuleLoad cuModuleLoadData cuModuleLoadDataEx cuModuleLoadFatBinary cuModuleUnload
 
     " 4.11
-    " syntax keyword cudaFunction cuArray3DCreate
-    " syntax keyword cudaFunction cuArray3DGetDescriptor
-    " syntax keyword cudaFunction cuArrayCreate
-    " syntax keyword cudaFunction cuArrayDestroy
-    " syntax keyword cudaFunction cuArrayGetDescriptor
-    " syntax keyword cudaFunction cuDeviceGetByPCIBusId
-    " syntax keyword cudaFunction cuDeviceGetPCIBusId
-    " syntax keyword cudaFunction cuIpcCloseMemHandle
-    " syntax keyword cudaFunction cuIpcGetEventHandle
-    " syntax keyword cudaFunction cuIpcGetMemHandle
-    " syntax keyword cudaFunction cuIpcOpenEventHandle
-    " syntax keyword cudaFunction cuIpcOpenMemHandle
-    " syntax keyword cudaFunction cuMemAlloc
-    " syntax keyword cudaFunction cuMemAllocHost
-    " syntax keyword cudaFunction cuMemAllocManaged
-    " syntax keyword cudaFunction cuMemAllocPitch
-    " syntax keyword cudaFunction cuMemFree
-    " syntax keyword cudaFunction cuMemFreeHost
-    " syntax keyword cudaFunction cuMemGetAddressRange
-    " syntax keyword cudaFunction cuMemGetInfo
-    " syntax keyword cudaFunction cuMemHostAlloc
-    " syntax keyword cudaFunction cuMemHostGetDevicePointer
-    " syntax keyword cudaFunction cuMemHostGetFlags
-    " syntax keyword cudaFunction cuMemHostRegister
-    " syntax keyword cudaFunction cuMemHostUnregister
-    " syntax keyword cudaFunction cuMemcpy
-    " syntax keyword cudaFunction cuMemcpy2D
-    " syntax keyword cudaFunction cuMemcpy2DAsync
-    " syntax keyword cudaFunction cuMemcpy2DUnaligned
-    " syntax keyword cudaFunction cuMemcpy3D
-    " syntax keyword cudaFunction cuMemcpy3DAsync
-    " syntax keyword cudaFunction cuMemcpy3DPeer
-    " syntax keyword cudaFunction cuMemcpy3DPeerAsync
-    " syntax keyword cudaFunction cuMemcpyAsync
-    " syntax keyword cudaFunction cuMemcpyAtoA
-    " syntax keyword cudaFunction cuMemcpyAtoD
-    " syntax keyword cudaFunction cuMemcpyAtoH
-    " syntax keyword cudaFunction cuMemcpyAtoHAsync
-    " syntax keyword cudaFunction cuMemcpyDtoA
-    " syntax keyword cudaFunction cuMemcpyDtoD
-    " syntax keyword cudaFunction cuMemcpyDtoDAsync
-    " syntax keyword cudaFunction cuMemcpyDtoH
-    " syntax keyword cudaFunction cuMemcpyDtoHAsync
-    " syntax keyword cudaFunction cuMemcpyHtoA
-    " syntax keyword cudaFunction cuMemcpyHtoAAsync
-    " syntax keyword cudaFunction cuMemcpyHtoD
-    " syntax keyword cudaFunction cuMemcpyHtoDAsync
-    " syntax keyword cudaFunction cuMemcpyPeer
-    " syntax keyword cudaFunction cuMemcpyPeerAsync
-    " syntax keyword cudaFunction cuMemsetD16
-    " syntax keyword cudaFunction cuMemsetD16Async
-    " syntax keyword cudaFunction cuMemsetD2D16
-    " syntax keyword cudaFunction cuMemsetD2D16Async
-    " syntax keyword cudaFunction cuMemsetD2D32
-    " syntax keyword cudaFunction cuMemsetD2D32Async
-    " syntax keyword cudaFunction cuMemsetD2D8
-    " syntax keyword cudaFunction cuMemsetD2D8Async
-    " syntax keyword cudaFunction cuMemsetD32
-    " syntax keyword cudaFunction cuMemsetD32Async
-    " syntax keyword cudaFunction cuMemsetD8
-    " syntax keyword cudaFunction cuMemsetD8Async
-    " syntax keyword cudaFunction cuMipmappedArrayCreate
-    " syntax keyword cudaFunction cuMipmappedArrayDestroy
-    " syntax keyword cudaFunction cuMipmappedArrayGetLevel
+    syntax keyword cudaFunction cuArray3DCreate
+    syntax keyword cudaFunction cuArray3DGetDescriptor
+    syntax keyword cudaFunction cuArrayCreate
+    syntax keyword cudaFunction cuArrayDestroy
+    syntax keyword cudaFunction cuArrayGetDescriptor
+    syntax keyword cudaFunction cuDeviceGetByPCIBusId
+    syntax keyword cudaFunction cuDeviceGetPCIBusId
+    syntax keyword cudaFunction cuIpcCloseMemHandle
+    syntax keyword cudaFunction cuIpcGetEventHandle
+    syntax keyword cudaFunction cuIpcGetMemHandle
+    syntax keyword cudaFunction cuIpcOpenEventHandle
+    syntax keyword cudaFunction cuIpcOpenMemHandle
+    syntax keyword cudaFunction cuMemAlloc
+    syntax keyword cudaFunction cuMemAllocHost
+    syntax keyword cudaFunction cuMemAllocManaged
+    syntax keyword cudaFunction cuMemAllocPitch
+    syntax keyword cudaFunction cuMemFree
+    syntax keyword cudaFunction cuMemFreeHost
+    syntax keyword cudaFunction cuMemGetAddressRange
+    syntax keyword cudaFunction cuMemGetInfo
+    syntax keyword cudaFunction cuMemHostAlloc
+    syntax keyword cudaFunction cuMemHostGetDevicePointer
+    syntax keyword cudaFunction cuMemHostGetFlags
+    syntax keyword cudaFunction cuMemHostRegister
+    syntax keyword cudaFunction cuMemHostUnregister
+    syntax keyword cudaFunction cuMemcpy
+    syntax keyword cudaFunction cuMemcpy2D
+    syntax keyword cudaFunction cuMemcpy2DAsync
+    syntax keyword cudaFunction cuMemcpy2DUnaligned
+    syntax keyword cudaFunction cuMemcpy3D
+    syntax keyword cudaFunction cuMemcpy3DAsync
+    syntax keyword cudaFunction cuMemcpy3DPeer
+    syntax keyword cudaFunction cuMemcpy3DPeerAsync
+    syntax keyword cudaFunction cuMemcpyAsync
+    syntax keyword cudaFunction cuMemcpyAtoA
+    syntax keyword cudaFunction cuMemcpyAtoD
+    syntax keyword cudaFunction cuMemcpyAtoH
+    syntax keyword cudaFunction cuMemcpyAtoHAsync
+    syntax keyword cudaFunction cuMemcpyDtoA
+    syntax keyword cudaFunction cuMemcpyDtoD
+    syntax keyword cudaFunction cuMemcpyDtoDAsync
+    syntax keyword cudaFunction cuMemcpyDtoH
+    syntax keyword cudaFunction cuMemcpyDtoHAsync
+    syntax keyword cudaFunction cuMemcpyHtoA
+    syntax keyword cudaFunction cuMemcpyHtoAAsync
+    syntax keyword cudaFunction cuMemcpyHtoD
+    syntax keyword cudaFunction cuMemcpyHtoDAsync
+    syntax keyword cudaFunction cuMemcpyPeer
+    syntax keyword cudaFunction cuMemcpyPeerAsync
+    syntax keyword cudaFunction cuMemsetD16
+    syntax keyword cudaFunction cuMemsetD16Async
+    syntax keyword cudaFunction cuMemsetD2D16
+    syntax keyword cudaFunction cuMemsetD2D16Async
+    syntax keyword cudaFunction cuMemsetD2D32
+    syntax keyword cudaFunction cuMemsetD2D32Async
+    syntax keyword cudaFunction cuMemsetD2D8
+    syntax keyword cudaFunction cuMemsetD2D8Async
+    syntax keyword cudaFunction cuMemsetD32
+    syntax keyword cudaFunction cuMemsetD32Async
+    syntax keyword cudaFunction cuMemsetD8
+    syntax keyword cudaFunction cuMemsetD8Async
+    syntax keyword cudaFunction cuMipmappedArrayCreate
+    syntax keyword cudaFunction cuMipmappedArrayDestroy
+    syntax keyword cudaFunction cuMipmappedArrayGetLevel
 
     " 4.12, 4.13, 4.14, 4.15, 4.16, 4.18
-    " syntax keyword cudaFunction cuMemAdvise cuMemPrefetchAsync cuMemRangeGetAttribute cuMemRangeGetAttributes cuPointerGetAttribute cuPointerGetAttributes cuPointerSetAttribute
-    " syntax keyword cudaFunction cuStreamAddCallback cuStreamAttachMemAsync cuStreamCreate cuStreamCreateWithPriority cuStreamDestroy cuStreamGetFlags cuStreamGetPriority cuStreamQuery cuStreamSynchronize cuStreamWaitEvent
-    " syntax keyword cudaFunction cuEventCreate cuEventDestroy cuEventElapsedTime cuEventQuery cuEventRecord cuEventSynchronize
-    " syntax keyword cudaFunction cuStreamBatchMemOp cuStreamWaitValue32 cuStreamWaitValue64 cuStreamWriteValue32 cuStreamWriteValue64
-    " syntax keyword cudaFunction cuFuncGetAttribute cuFuncSetAttribute cuFuncSetCacheConfig cuFuncSetSharedMemConfig cuLaunchCooperativeKernel cuLaunchCooperativeKernelMultiDevice cuLaunchKernel
-    " syntax keyword cudaFunction cuOccupancyMaxActiveBlocksPerMultiprocessor cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags cuOccupancyMaxPotentialBlockSize cuOccupancyMaxPotentialBlockSizeWithFlags
+    syntax keyword cudaFunction cuMemAdvise cuMemPrefetchAsync cuMemRangeGetAttribute cuMemRangeGetAttributes cuPointerGetAttribute cuPointerGetAttributes cuPointerSetAttribute
+    syntax keyword cudaFunction cuStreamAddCallback cuStreamAttachMemAsync cuStreamCreate cuStreamCreateWithPriority cuStreamDestroy cuStreamGetFlags cuStreamGetPriority cuStreamQuery cuStreamSynchronize cuStreamWaitEvent
+    syntax keyword cudaFunction cuEventCreate cuEventDestroy cuEventElapsedTime cuEventQuery cuEventRecord cuEventSynchronize
+    syntax keyword cudaFunction cuStreamBatchMemOp cuStreamWaitValue32 cuStreamWaitValue64 cuStreamWriteValue32 cuStreamWriteValue64
+    syntax keyword cudaFunction cuFuncGetAttribute cuFuncSetAttribute cuFuncSetCacheConfig cuFuncSetSharedMemConfig cuLaunchCooperativeKernel cuLaunchCooperativeKernelMultiDevice cuLaunchKernel
+    syntax keyword cudaFunction cuOccupancyMaxActiveBlocksPerMultiprocessor cuOccupancyMaxActiveBlocksPerMultiprocessorWithFlags cuOccupancyMaxPotentialBlockSize cuOccupancyMaxPotentialBlockSizeWithFlags
 
     " 4.19
-    " syntax keyword cudaFunction cuTexRefGetAddress
-    " syntax keyword cudaFunction cuTexRefGetAddressMode
-    " syntax keyword cudaFunction cuTexRefGetArray
-    " syntax keyword cudaFunction cuTexRefGetBorderColor
-    " syntax keyword cudaFunction cuTexRefGetFilterMode
-    " syntax keyword cudaFunction cuTexRefGetFlags
-    " syntax keyword cudaFunction cuTexRefGetFormat
-    " syntax keyword cudaFunction cuTexRefGetMaxAnisotropy
-    " syntax keyword cudaFunction cuTexRefGetMipmapFilterMode
-    " syntax keyword cudaFunction cuTexRefGetMipmapLevelBias
-    " syntax keyword cudaFunction cuTexRefGetMipmapLevelClamp
-    " syntax keyword cudaFunction cuTexRefGetMipmappedArray
-    " syntax keyword cudaFunction cuTexRefSetAddress
-    " syntax keyword cudaFunction cuTexRefSetAddress2D
-    " syntax keyword cudaFunction cuTexRefSetAddressMode
-    " syntax keyword cudaFunction cuTexRefSetArray
-    " syntax keyword cudaFunction cuTexRefSetBorderColor
-    " syntax keyword cudaFunction cuTexRefSetFilterMode
-    " syntax keyword cudaFunction cuTexRefSetFlags
-    " syntax keyword cudaFunction cuTexRefSetFormat
-    " syntax keyword cudaFunction cuTexRefSetMaxAnisotropy
-    " syntax keyword cudaFunction cuTexRefSetMipmapFilterMode
-    " syntax keyword cudaFunction cuTexRefSetMipmapLevelBias
-    " syntax keyword cudaFunction cuTexRefSetMipmapLevelClamp
-    " syntax keyword cudaFunction cuTexRefSetMipmappedArray
+    syntax keyword cudaFunction cuTexRefGetAddress
+    syntax keyword cudaFunction cuTexRefGetAddressMode
+    syntax keyword cudaFunction cuTexRefGetArray
+    syntax keyword cudaFunction cuTexRefGetBorderColor
+    syntax keyword cudaFunction cuTexRefGetFilterMode
+    syntax keyword cudaFunction cuTexRefGetFlags
+    syntax keyword cudaFunction cuTexRefGetFormat
+    syntax keyword cudaFunction cuTexRefGetMaxAnisotropy
+    syntax keyword cudaFunction cuTexRefGetMipmapFilterMode
+    syntax keyword cudaFunction cuTexRefGetMipmapLevelBias
+    syntax keyword cudaFunction cuTexRefGetMipmapLevelClamp
+    syntax keyword cudaFunction cuTexRefGetMipmappedArray
+    syntax keyword cudaFunction cuTexRefSetAddress
+    syntax keyword cudaFunction cuTexRefSetAddress2D
+    syntax keyword cudaFunction cuTexRefSetAddressMode
+    syntax keyword cudaFunction cuTexRefSetArray
+    syntax keyword cudaFunction cuTexRefSetBorderColor
+    syntax keyword cudaFunction cuTexRefSetFilterMode
+    syntax keyword cudaFunction cuTexRefSetFlags
+    syntax keyword cudaFunction cuTexRefSetFormat
+    syntax keyword cudaFunction cuTexRefSetMaxAnisotropy
+    syntax keyword cudaFunction cuTexRefSetMipmapFilterMode
+    syntax keyword cudaFunction cuTexRefSetMipmapLevelBias
+    syntax keyword cudaFunction cuTexRefSetMipmapLevelClamp
+    syntax keyword cudaFunction cuTexRefSetMipmappedArray
 
     " 4.21, 4.22, 4.23, 4.24, 4.25, 4.26
-    " syntax keyword cudaFunction cuSurfRefGetArray cuSurfRefSetArray
-    " syntax keyword cudaFunction cuTexObjectCreate cuTexObjectDestroy cuTexObjectGetResourceDesc cuTexObjectGetResourceViewDesc cuTexObjectGetTextureDesc
-    " syntax keyword cudaFunction cuSurfObjectCreate cuSurfObjectDestroy cuSurfObjectGetResourceDesc
-    " syntax keyword cudaFunction cuCtxDisablePeerAccess cuCtxEnablePeerAccess cuDeviceCanAccessPeer cuDeviceGetP2PAttribute
-    " syntax keyword cudaFunction cuGraphicsMapResources cuGraphicsResourceGetMappedMipmappedArray cuGraphicsResourceGetMappedPointer cuGraphicsResourceSetMapFlags cuGraphicsSubResourceGetMappedArray cuGraphicsUnmapResources cuGraphicsUnregisterResource
-    " syntax keyword cudaFunction cuProfilerInitialize cuProfilerStart cuProfilerStop
+    syntax keyword cudaFunction cuSurfRefGetArray cuSurfRefSetArray
+    syntax keyword cudaFunction cuTexObjectCreate cuTexObjectDestroy cuTexObjectGetResourceDesc cuTexObjectGetResourceViewDesc cuTexObjectGetTextureDesc
+    syntax keyword cudaFunction cuSurfObjectCreate cuSurfObjectDestroy cuSurfObjectGetResourceDesc
+    syntax keyword cudaFunction cuCtxDisablePeerAccess cuCtxEnablePeerAccess cuDeviceCanAccessPeer cuDeviceGetP2PAttribute
+    syntax keyword cudaFunction cuGraphicsMapResources cuGraphicsResourceGetMappedMipmappedArray cuGraphicsResourceGetMappedPointer cuGraphicsResourceSetMapFlags cuGraphicsSubResourceGetMappedArray cuGraphicsUnmapResources cuGraphicsUnregisterResource
+    syntax keyword cudaFunction cuProfilerInitialize cuProfilerStart cuProfilerStop
 
     " 4.27, 4.28, 4.29, 4.30, 4.31, 4.32
-    " syntax keyword cudaFunction cuGLGetDevices cuGraphicsGLRegisterBuffer cuGraphicsGLRegisterImage cuWGLGetDevice
-    " syntax keyword cudaFunction cuD3D9CtxCreate cuD3D9CtxCreateOnDevice cuD3D9GetDevice cuD3D9GetDevices cuD3D9GetDirect3DDevice cuGraphicsD3D9RegisterResource
-    " syntax keyword cudaFunction cuD3D10GetDevice cuD3D10GetDevices cuGraphicsD3D10RegisterResource
-    " syntax keyword cudaFunction cuD3D11GetDevice cuD3D11GetDevices cuGraphicsD3D11RegisterResource
-    " syntax keyword cudaFunction cuGraphicsVDPAURegisterOutputSurface cuGraphicsVDPAURegisterVideoSurface cuVDPAUCtxCreate cuVDPAUGetDevice
-    " syntax keyword cudaFunction cuEGLStreamConsumerAcquireFrame cuEGLStreamConsumerConnect cuEGLStreamConsumerConnectWithFlags cuEGLStreamConsumerDisconnect cuEGLStreamConsumerReleaseFrame cuEGLStreamProducerConnect cuEGLStreamProducerDisconnect cuEGLStreamProducerPresentFrame cuEGLStreamProducerReturnFrame cuEventCreateFromEGLSync cuGraphicsEGLRegisterImage cuGraphicsResourceGetMappedEglFrame
+    syntax keyword cudaFunction cuGLGetDevices cuGraphicsGLRegisterBuffer cuGraphicsGLRegisterImage cuWGLGetDevice
+    syntax keyword cudaFunction cuD3D9CtxCreate cuD3D9CtxCreateOnDevice cuD3D9GetDevice cuD3D9GetDevices cuD3D9GetDirect3DDevice cuGraphicsD3D9RegisterResource
+    syntax keyword cudaFunction cuD3D10GetDevice cuD3D10GetDevices cuGraphicsD3D10RegisterResource
+    syntax keyword cudaFunction cuD3D11GetDevice cuD3D11GetDevices cuGraphicsD3D11RegisterResource
+    syntax keyword cudaFunction cuGraphicsVDPAURegisterOutputSurface cuGraphicsVDPAURegisterVideoSurface cuVDPAUCtxCreate cuVDPAUGetDevice
+    syntax keyword cudaFunction cuEGLStreamConsumerAcquireFrame cuEGLStreamConsumerConnect cuEGLStreamConsumerConnectWithFlags cuEGLStreamConsumerDisconnect cuEGLStreamConsumerReleaseFrame cuEGLStreamProducerConnect cuEGLStreamProducerDisconnect cuEGLStreamProducerPresentFrame cuEGLStreamProducerReturnFrame cuEventCreateFromEGLSync cuGraphicsEGLRegisterImage cuGraphicsResourceGetMappedEglFrame
     syntax keyword cudaType     CUGLDeviceList
     syntax keyword cudaType     CUd3d9DeviceList
     syntax keyword cudaType     CUd3d10DeviceList
