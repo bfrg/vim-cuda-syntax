@@ -19,7 +19,7 @@ All keywords were accumulated from the
 
 <dl>
 <p align="center">
-<img src="./screenshot-cuda-monokai.png" width="480"/>
+<img src="./screenshot-cuda-onedark.png" width="480"/>
 </p>
 </dl>
 
