@@ -28,7 +28,8 @@ All keywords were accumulated from the
 1. Highlighting of the triple angle-brackets in CUDA kernel calls works only
    when the angle brackets are on the same line. The function name is only
    highlighted when called without template arguments, i.e. `mykernel` won't be
-   highlighted in `mykernel<foo, bar><<<grid, threads>>>(data)`.
+   highlighted in `mykernel<foo, bar><<<grid, threads>>>(data)`, but will be
+   highlighted in `mykernel<<<grid, threads>>>(data)`.
 
 2. CUDA [data fields](https://docs.nvidia.com/cuda/cuda-runtime-api/functions.html#functions)
    are not highlighted because many keywords have familiar names which could
@@ -40,6 +41,9 @@ All keywords were accumulated from the
 ## Optional features
 
 ```vim
+" Enable highlighting of CUDA kernel calls
+let g:cuda_kernel_highlight = 1
+
 " Highlight keywords from CUDA Runtime API
 let g:cuda_runtime_api_highlight = 1
 
@@ -48,9 +52,6 @@ let g:cuda_driver_api_highlight = 1
 
 " Highlight keywords from CUDA Thrust library
 let g:cuda_thrust_highlight = 1
-
-" Disable highlighting of CUDA kernel calls
-let g:cuda_no_kernel_highlight = 1
 ```
 
 

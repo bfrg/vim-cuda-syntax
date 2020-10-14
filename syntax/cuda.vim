@@ -20,7 +20,7 @@ runtime! syntax/cpp.vim
 unlet b:current_syntax
 
 " Highlight CUDA kernel calls {{{1
-if !exists('g:cuda_no_kernel_highlight')
+if get(g:, 'cuda_kernel_highlight')
     " Match <<< and >>> only when they appear as a pair, must be on the same line
     " Look back only 128 bytes before '>>>' too speed up parsing
     syntax match cudaKernelAngles "<<<\(.\{-}>>>\)\@=\|\(<<<.\{-}\)\@128<=>>>"
