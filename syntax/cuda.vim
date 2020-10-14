@@ -5,11 +5,6 @@
 " Maintainer:   bfrg <bfrg@users.noreply.github.com>
 " Website:      https://github.cim/bfrg/vim-cuda-syntax
 " Last Change:  Oct 14, 2020
-"
-" Enhanced CUDA syntax highlighting including highlighting of CUDA kernel calls.
-"
-" Keywords were accumulated from the CUDA Toolkit Documentation:
-" http://docs.nvidia.com/cuda/index.html
 " ==============================================================================
 
 if exists('b:current_syntax')
