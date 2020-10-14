@@ -19,7 +19,7 @@ All keywords were accumulated from the
 
 <dl>
 <p align="center">
-<img src="./screenshot-cuda-onedark.png" width="480"/>
+<img src="https://user-images.githubusercontent.com/6266600/95977810-9b746580-0e19-11eb-8105-4e2d9efa0c97.png" width="480"/>
 </p>
 </dl>
 
